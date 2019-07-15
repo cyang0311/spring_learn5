@@ -1,0 +1,32 @@
+输出图片流
+ServletOutputStream os = resp.getOutputStream();
+InputStream is = new FileInputStream(new File(getServletContext().getRealPath("img"),"pf.png"));
+int index = -1;
+while ((index=is.read())!=-1){
+      os.write(index);
+}
+
+ $(function () {
+            $("a").click(function () {
+
+            ajsx请求
+                $.ajax({
+                    url: 'demo',
+                    data: {"name": "张三"},
+                    dataType: 'html',
+                    error: function () {
+                        alert("请求出错")
+                    },
+                    success: function (data) {
+                        alert("请求成功" + data)
+                    },
+                    type: 'POST'
+                });
+                post请求
+                $.post("demo", {"name": "123"}, function (data) {
+                    alert(data)
+                })
+
+                return false;
+            })
+        });

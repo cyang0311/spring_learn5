@@ -1,0 +1,55 @@
+propagation  事务传播行为{
+    REQUIRED（默认值）若有事务 就在当前事务中执行    若没有事务 则创建新事务
+    SUPPORTS若有事务 就在当前事务中执行    若没有事务 则在无事务状态下执行
+    MANDATORY必须有事务 若有事务 就在当前事务中执行    若没有事务 报错
+    REQUIRES_NEW 若无事务则新建  有事务则将已有事务挂起  与上级事务无关
+    NOT_SUPPORTED 必须在非事务状态下执行  有事务就将该事物挂起
+    NEVER 没事无正常运行 有事务报错
+    NESTED 没事务则新建事务  有事务就创建嵌套事务   与上级事务有关
+}
+
+isolation 事务隔离级别{
+    保证在多线程并发情况下数据的有效性
+
+    赃读：A修改数据到缓存未提交  B读取到缓存数据与当前数据库不符
+
+    不可重复读：针对某行或某行中的列   针对修改操作  针对同一事务中的两次读取
+        A读取一条数据 B修改A读过的数据 导致A再次读取的数据与之前不同
+
+    幻读：针对新增或删除  针对两次事务的结果
+        A事务按条件查询 B事务插入符合条件的数据 导致A中结果与数据库不符
+
+    DEFAULT 默认值，由底层数据库判断使用什么隔离级别
+    READ_UNCOMMITTED:可读取未提交数据，会出现赃读、幻读、不可重复读，效率最高
+    READ_COMMITTED： 只能读取已提交的数据  可防止赃读 会出现不可重复读、幻读
+    REPEATABLE_READ: 在读数据加锁 防止赃读、不可重复读  会出现幻读
+    SERIALIZABLE: 排队 对整个表加锁 最安全、效率低
+}
+
+rollback-for 异常类型全限定路径{
+    限定出现什么异常时回滚
+}
+{
+    功能相同
+    @Component
+    @Service建议用于ServiceImpl上
+    @Repository建议用于数据访问层
+    @controller写在控制类上servlet
+
+
+    注入（不需要get/set）
+    @Resource javax的注解
+        默认按byName查找  其次按byType
+    @Autowired spring注解
+        默认按byType查找  其次按byName
+
+
+    @Value获取properties文件内容
+    @Pointcut切点
+    @Aspect切面
+    @Before前置
+    @After后置通知
+    @AfterReturning后置 切点正常正常执行时触发
+    @AfterThrowing 异常通知
+    @Around环绕通知
+}

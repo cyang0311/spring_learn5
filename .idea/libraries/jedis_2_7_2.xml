@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jedis-2.7.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jedis-2.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jedis-2.7.2.jar!/src/test/java" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/jedis-2.7.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
